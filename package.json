@@ -1,5 +1,5 @@
 {
-  "name": "splitter",
+  "name": "sachinpixel",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,8 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "storybook build -s public",
     "lint": "eslint --ignore-path .gitignore --fix src/**/*.{ts,tsx}",
     "format": "prettier --ignore-path .gitignore --write src/**/*.{ts,tsx}",
     "prepare": "husky install",
@@ -101,6 +101,7 @@
     "postcss-nested": "^6.0.0",
     "prettier": "^2.8.1",
     "prop-types": "^15.8.1",
+    "storybook": "^7.4.4",
     "typescript": "^4.9.4",
     "typescript-plugin-css-modules": "^4.1.1",
     "webpack": "^5.75.0"
