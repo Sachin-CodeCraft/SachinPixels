@@ -18,3 +18,5 @@ export const Default = Template.bind({});
 Default.args = {
   text: 'Sign In',
 };
+
+export const Disabled = Template.bind({});
