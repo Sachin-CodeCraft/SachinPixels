@@ -19,11 +19,13 @@ const GlobalStyles = createGlobalStyle`
 /*
     3. Allow percentage-based heights in the application
   */
-html,
-body {
-  height: 100%;
-  overflow-x:hidden;
-}
+    html, body, #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+  }
 /*
     Typographic tweaks!
     4. Add accessible line-height
@@ -66,10 +68,7 @@ h6 {
 /*
     9. Create a root stacking context for the react app.
   */
-#root {
-  isolation: isolate;
-  height: 100%;
-}
+
 `;
 
 export default GlobalStyles;
