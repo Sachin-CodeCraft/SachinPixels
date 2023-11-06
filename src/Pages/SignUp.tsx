@@ -16,8 +16,6 @@ import {
 } from '@chakra-ui/react';
 
 const SignUp = () => {
-  // const [showPassword, setShowPassword] = useState(false);
-
   const firstname = useRef<HTMLInputElement>(null);
   const lastname = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
@@ -49,33 +47,32 @@ const SignUp = () => {
           </StyledText>
           <div>
             <FormControl isRequired>
-              <FormLabel>Firstname</FormLabel>
+              <TextLabel>Firstname</TextLabel>
               <Input type="text" ref={firstname} />
             </FormControl>
             <FormControl isRequired>
-              <FormLabel>Lastname</FormLabel>
+              <TextLabel>Lastname</TextLabel>
               <Input type="text" ref={lastname} />
             </FormControl>
             <FormControl isRequired>
-              <FormLabel>Email address</FormLabel>
+              <TextLabel>Email address</TextLabel>
               <Input type="email" ref={email} />
             </FormControl>
             <FormControl id="passwords" isRequired>
-              <FormLabel>Password</FormLabel>
+              <TextLabel>Password</TextLabel>
               <InputGroup>
                 <Input
                   type={showPassword ? 'text' : 'password'}
                   ref={password}
                 />
                 <InputRightElement h={'full'}>
-                  <Button
-                    variant={'ghost'}
+                  <ButtonIcon
                     onClick={() =>
                       setShowPassword((showPassword) => !showPassword)
                     }
                   >
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                  </Button>
+                  </ButtonIcon>
                 </InputRightElement>
               </InputGroup>
             </FormControl>
@@ -145,6 +142,13 @@ const Img = styled.div`
   z-index: 1;
 `;
 
+const ButtonIcon = styled.button`
+  background-color: transparent;
+  border: none;
+  padding-right: 10px;
+  padding-bottom: 5px;
+`;
+
 const SecondContainer = styled.div`
   width: 50%;
   height: 90vh;
@@ -188,6 +192,11 @@ const StyledText = styled(Text)`
   @media (min-width: 30em) {
     font-size: 1.125rem;
   }
+`;
+
+const TextLabel = styled(FormLabel)`
+  margin-top: 10px;
+  margin-bottom: 0 !important;
 `;
 
 export default SignUp;
