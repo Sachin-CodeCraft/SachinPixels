@@ -1,11 +1,10 @@
 /* eslint-disable */
 
-
-import React from "react";
-import { chakra, Box, Flex, Image } from "@chakra-ui/react";
-import logoPng from "../../assets/default.png"
+import React from 'react';
+import { chakra, Box, Flex, Image } from '@chakra-ui/react';
+import logoPng from '../../assets/default.png';
 import Spline from '@splinetool/react-spline';
-const Feature=()=>{
+const Feature = () => {
   return (
     <Flex
       bg="#e7f1fb"
@@ -33,11 +32,10 @@ const Feature=()=>{
           overflow="hidden"
           marginY="5"
         >
-<Spline scene="https://prod.spline.design/iwVKILINxN7gmP83/scene.splinecode" />
-
+          <Spline scene="https://prod.spline.design/iwVKILINxN7gmP83/scene.splinecode" />
         </Flex>
         <Flex py="2">
-            <a href="http://sumankumargiri.com/" target="_blank" rel="noreferrer">
+          <a href="" target="_blank" rel="noreferrer">
             <chakra.button
               bg="#a0aebf"
               fontSize="xs"
@@ -48,15 +46,16 @@ const Feature=()=>{
               transition="all 0.3s ease"
               rounded="lg"
               _focus={{
-                bg: "gray.700",
-                _dark: { bg: "gray.600" },
-                outline: "none",
+                bg: 'gray.700',
+                _dark: { bg: 'gray.600' },
+                outline: 'none',
               }}
-              _hover={{background: "gray.600", transition:"all 0.3s ease"}}
+              _hover={{ background: 'gray.600', transition: 'all 0.3s ease' }}
             >
-              by Suman Giri
-            </chakra.button></a>
-          </Flex>
+              by Sachin Ingole
+            </chakra.button>
+          </a>
+        </Flex>
       </Flex>
     </Flex>
   );

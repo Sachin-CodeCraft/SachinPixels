@@ -1,4 +1,3 @@
-
 /* eslint-disable */
 
 import {
@@ -25,41 +24,41 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerOverlay,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
-import logo from "../../../src/assets/logo1.png";
+import logo from '../../../src/assets/logo1.png';
 
-import { ChatIcon, Search2Icon } from "@chakra-ui/icons";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { SiAirplayaudio } from "react-icons/si";
+import { ChatIcon, Search2Icon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { SiAirplayaudio } from 'react-icons/si';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 // import { useDispatch, useSelector } from "react-redux";
 // import { logoutUser } from "../../redux/auth/action";
 // import LeftSidebar from "../LeftSidebar/LeftSidebar";
-import SidebarMobile from "./SidebarMobile";
-import RecommendUsers from "../RightSidebar/RecommendUsers";
-import axios from "axios";
-import { useEffect,  useState } from "react";
+import SidebarMobile from './SidebarMobile';
+import RecommendUsers from '../RightSidebar/RecommendUsers';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 // import { IoMdDoneAll } from "react-icons/io";
 // import { RiHeartAddFill } from "react-icons/ri";
-import SearchedUserCard from "./SearchedUserCard";
+import SearchedUserCard from './SearchedUserCard';
 
- function Navbar() {
+function Navbar() {
   const PublicFile = process.env.REACT_APP_PUBLIC_FOLDER;
 
   // const userId = useSelector((store) => store.auth.userId);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [searchtext, setSearchText]= useState(null)
+  const [searchtext, setSearchText] = useState(null);
 
   // const userDetails = useSelector((store) => store.auth.userDetails);
 
   // const dispatch = useDispatch();
 
   const toast = useToast();
-  const [searchDivShow, setSearchDivShow]= useState(false);
+  const [searchDivShow, setSearchDivShow] = useState(false);
 
   const handleLogout = () => {
     // dispatch(logoutUser(toast));
@@ -68,31 +67,28 @@ import SearchedUserCard from "./SearchedUserCard";
   const [searchUser, setSearchUser] = useState([]);
 
   useEffect(() => {
-    
-    if(searchtext === ""){
-      setSearchDivShow(false)
+    if (searchtext === '') {
+      setSearchDivShow(false);
     }
-  },[searchtext])
+  }, [searchtext]);
 
   const handleSearch = () => {
-    console.log(searchtext, "texts");
+    console.log(searchtext, 'texts');
 
     axios
       .get(
-        `https://superfam-backend-production.up.railway.app/api/user/search/${searchtext}`
+        `https://superfam-backend-production.up.railway.app/api/user/search/${searchtext}`,
       )
       .then((res) => {
         setSearchUser(res.data);
-        
       });
-      setSearchDivShow(!searchDivShow)
+    setSearchDivShow(!searchDivShow);
   };
 
- 
   return (
     <>
       <Box
-        bg={useColorModeValue("gray.100", "gray.900")}
+        bg={useColorModeValue('gray.100', 'gray.900')}
         pos="fixed"
         left="0"
         right="0"
@@ -101,53 +97,50 @@ import SearchedUserCard from "./SearchedUserCard";
         zIndex="sticky"
         boxShadow=" lg"
         background={[
-          "linear-gradient(to right, #ffffff, #9ea7bf)",
-          "linear-gradient(to right, #ffffff, #929cba)",
-          "linear-gradient(to right, #e2e8f1, #7680a0)",
+          'linear-gradient(to right, #ffffff, #9ea7bf)',
+          'linear-gradient(to right, #ffffff, #929cba)',
+          'linear-gradient(to right, #e2e8f1, #7680a0)',
         ]}
       >
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
-            size={"md"}
+            size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
-            display={{ md: "none" }}
+            aria-label={'Open Menu'}
+            display={{ md: 'none' }}
             bg="#ffffff"
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack
-            className={"left"}
+            className={'left'}
             spacing={8}
-            alignItems={"center"}
-            w={["40%", "40%", "25%", "33%"]}
+            alignItems={'center'}
+            w={['40%', '40%', '25%', '33%']}
           >
-           
-            <Flex justify={["center", "center", "start"]} w="100%">
+            <Flex justify={['center', 'center', 'start']} w="100%">
               <Link to="/">
                 <Image h="3rem" src={logo} />
               </Link>
-              <Tittle>
-              SachinPixels</Tittle>
+              <Tittle>SachinPixels</Tittle>
             </Flex>
-            
           </HStack>
           <Flex
-            className={"middle"}
-            w={["0%", "0%", "33%", "33%"]}
-            display={["none", "none", "block", "block"]}
-            alignItems={"center"}
+            className={'middle'}
+            w={['0%', '0%', '33%', '33%']}
+            display={['none', 'none', 'block', 'block']}
+            alignItems={'center'}
             // border="1px solid red"
-            pos={"relative"}
+            pos={'relative'}
           >
             <Flex
               w="100%"
-              alignItems={"center"}
+              alignItems={'center'}
               borderRadius="lg"
               overflow="hidden"
             >
               <Input
                 boxShadow={
-                  " rgb(204, 219, 232) 3px 3px 5px 2px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+                  ' rgb(204, 219, 232) 3px 3px 5px 2px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset'
                 }
                 bg="rgb(236, 242, 248)"
                 variant="outline"
@@ -155,19 +148,18 @@ import SearchedUserCard from "./SearchedUserCard";
                 borderRightRadius="0"
                 placeholder="Search people / posts"
                 w="90%"
-                fontWeight={"400"}
+                fontWeight={'400'}
                 fontSize="16px"
                 color="#52555f"
                 border="none"
                 outline="none"
                 focusBorderColor="none"
-                
               />
               <Center w="10%">
                 <IconButton
                   _hover={{
-                    backgroundColor: "#8f9bac",
-                    transition: "all .5s ease",
+                    backgroundColor: '#8f9bac',
+                    transition: 'all .5s ease',
                   }}
                   transition="all .4s ease"
                   backgroundColor="#d5dae8"
@@ -179,14 +171,14 @@ import SearchedUserCard from "./SearchedUserCard";
                 />
               </Center>
               <Box
-              display={searchDivShow ? "block" : "none"}
-                pos={"absolute"}
+                display={searchDivShow ? 'block' : 'none'}
+                pos={'absolute'}
                 // h="10rem"
-                borderRadius='10px'
+                borderRadius="10px"
                 w="full"
                 top="10"
                 // border="2px solid black"
-                bg='#fbfbfb9e'
+                bg="#fbfbfb9e"
               >
                 {/* {searchUser.map((userFound)=>{
                   return(
@@ -200,15 +192,15 @@ import SearchedUserCard from "./SearchedUserCard";
             align="center"
             justify="space-around"
             px="5%"
-            className={"iconsDiv"}
-            w={["10%", "6%", "20%", "23%"]}
+            className={'iconsDiv'}
+            w={['10%', '6%', '20%', '23%']}
             h="2rem"
-            display={{ base: "none", md: "flex" }}
+            display={{ base: 'none', md: 'flex' }}
           >
             <Link to="/video">
               <Tooltip
                 hasArrow
-                label="Fam videos 💙"
+                label="Videos 💙"
                 bg="gray.300"
                 color="#52555f"
                 borderRadius="10"
@@ -233,10 +225,10 @@ import SearchedUserCard from "./SearchedUserCard";
           </Flex>
 
           <Flex
-            alignItems={"center"}
-            className={"right"}
-            w={["10%", "6%", "4%", "3%"]}
-            justify={"center"}
+            alignItems={'center'}
+            className={'right'}
+            w={['10%', '6%', '4%', '3%']}
+            justify={'center'}
           >
             <Menu>
               <Tooltip
@@ -248,15 +240,17 @@ import SearchedUserCard from "./SearchedUserCard";
               >
                 <MenuButton
                   as={Button}
-                  rounded={"full"}
-                  variant={"link"}
-                  cursor={"pointer"}
+                  rounded={'full'}
+                  variant={'link'}
+                  cursor={'pointer'}
                   minW={0}
                   boxShadow=" rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.027) 0px 32px 16px"
                 >
                   <Avatar
-                    size={"sm"}
-                    // src={PublicFile + userDetails?.profilePicture}
+                    size={'sm'}
+                    src={
+                      'https://lh3.googleusercontent.com/a/ACg8ocJyq3jBw5IrPoYiaNdrbmhphe0oacLya0SqpVTPqPvjEw=s360-c-no'
+                    }
                   />
                 </MenuButton>
               </Tooltip>
@@ -296,13 +290,12 @@ import SearchedUserCard from "./SearchedUserCard";
   );
 }
 
-
 const Tittle = styled.h3`
-color: black;
-margin-left: 20px;
-font-size: 1.5rem;
-font-weight: 600;
-padding-top: 6px;
-`
+  color: black;
+  margin-left: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-top: 6px;
+`;
 
 export default Navbar;
